@@ -9,3 +9,15 @@ function getComputerChoice() {
   }
   return randomComputerChoice;
 }
+
+function getHumanChoice() {
+  let inputHumanChoice = prompt("Enter your choice: ").toLowerCase();
+  if (inputHumanChoice === "") {
+    alert(`Game canceled.`);
+    return "error"
+  } else if (inputHumanChoice != "rock" && inputHumanChoice != "paper" && inputHumanChoice != "scissors") {
+    alert(`Wrong input! You entered ${inputHumanChoice}. Enter 'rock', 'paper', or 'scissors' instead.`);
+    return "error"
+  }
+  return inputHumanChoice;
+}
