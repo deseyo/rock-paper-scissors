@@ -25,7 +25,7 @@ function getHumanChoice() {
 function playGame() {
   let computerScore = 0;
   let humanScore = 0;
-
+  
   function playRound(computerChoice, humanChoice) {
     if (computerChoice === `rock` && humanChoice === `scissors`) {
       computerScore += 1;
@@ -49,4 +49,21 @@ function playGame() {
       console.log(`No one won! You and computer choosed ${computerChoice}.`);
     }
   }
+
+  const numberOfRouds = 5;
+  for (let roundCount = 1; roundCount <= numberOfRouds; roundCount++) {
+    const computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    playRound(computerSelection, humanSelection);
+  }
+
+  if (computerScore > humanScore) {
+    console.log(`Game over! Computer won. Score: computer ${computerScore}, user ${humanScore}`);
+  } else if (humanScore > computerChoice) {
+    console.log(`Game over! You won. Score: computer ${computerScore}, user ${humanScore}`);
+  } else {
+    console.log(`Game over! No one won. Score: computer ${computerScore}, user ${humanScore}`);
+  }
 }
+
+playGame();
