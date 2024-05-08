@@ -11,21 +11,30 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let inputHumanChoice = prompt(`Enter your choice: `).toLocaleLowerCase();
-  if (inputHumanChoice === ``) {
-    alert(`Game canceled.`);
-    return `error`
-  } else if (inputHumanChoice != `rock` && inputHumanChoice != `paper` && inputHumanChoice != `scissors`) {
-    alert(`Wrong input! You entered ${inputHumanChoice}. Enter 'rock', 'paper', or 'scissors' instead.`);
-    return `error`
+  let inputHumanChoice;
+  while (true) {
+    inputHumanChoice = prompt(`Enter your choice: `);
+    try {
+      inputHumanChoice = inputHumanChoice.toLowerCase();
+    } 
+    catch {
+      return inputHumanChoice;
+    }
+
+    if (inputHumanChoice != `rock` && inputHumanChoice != `paper` && inputHumanChoice != `scissors`) {
+      alert(`Wrong input, try again.`);
+      continue;
+    } else {
+      break;
+    }
   }
-  return inputHumanChoice;
+  return inputHumanChoice
 }
 
 function playGame() {
   let computerScore = 0;
   let humanScore = 0;
-  
+
   function playRound(computerChoice, humanChoice) {
     if (computerChoice === `rock` && humanChoice === `scissors`) {
       computerScore += 1;
@@ -51,18 +60,25 @@ function playGame() {
   }
 
   const numberOfRouds = 5;
+  let gameCanceled;
   for (let roundCount = 1; roundCount <= numberOfRouds; roundCount++) {
     const computerSelection = getComputerChoice();
     const humanSelection = getHumanChoice();
+    if (humanSelection == null) {
+      gameCanceled = true;
+      break
+    }
     playRound(computerSelection, humanSelection);
   }
 
-  if (computerScore > humanScore) {
+  if (gameCanceled === true) {
+    console.log("Game canceled");
+  } else if (computerScore > humanScore) {
     console.log(`Game over! Computer won. Score: computer ${computerScore}, user ${humanScore}`);
-  } else if (humanScore > computerChoice) {
-    console.log(`Game over! You won. Score: computer ${computerScore}, user ${humanScore}`);
+  } else if (humanScore > computerScore) {
+    console.log(`Game over! You won. Score: Computer ${computerScore}, User ${humanScore}`);
   } else {
-    console.log(`Game over! No one won. Score: computer ${computerScore}, user ${humanScore}`);
+    console.log(`Game over! No one won. Score: User ${humanScore}, Computer ${computerScore}`);
   }
 }
 
