@@ -7,17 +7,17 @@ const humanSelection = getHumanChoice();
 function getComputerChoice() {
   let randomComputerChoice = Math.round(Math.random() * 2);
   if (randomComputerChoice === 0) {
-    randomComputerChoice = "rock";
+    randomComputerChoice = `rock`;
   } else if (randomComputerChoice === 1) {
-    randomComputerChoice = "paper";
+    randomComputerChoice = `paper`;
   } else if (randomComputerChoice === 2) {
-    randomComputerChoice = "scissors";
+    randomComputerChoice = `scissors`;
   }
   return randomComputerChoice;
 }
 
 function getHumanChoice() {
-  let inputHumanChoice = prompt("Enter your choice: ").toLocaleLowerCase();
+  let inputHumanChoice = prompt(`Enter your choice: `).toLocaleLowerCase();
   if (inputHumanChoice === ``) {
     alert(`Game canceled.`);
     return `error`
