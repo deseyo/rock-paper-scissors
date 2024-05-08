@@ -70,7 +70,7 @@ function playGame() {
 
   const numberOfRouds = 5;
   let gameCanceled;
-  
+
   for (let roundCount = 1; roundCount <= numberOfRouds; roundCount++) {
     // define selection for user and computer each time loop runs by using two functions responsible for that
     const computerSelection = getComputerChoice();
@@ -98,4 +98,5 @@ function playGame() {
   }
 }
 
+// playGame() invokes code which is responsible for all variables declarations and functions invocations which make the whole game works
 playGame();
