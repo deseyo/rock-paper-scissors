@@ -1,8 +1,6 @@
 function getComputerChoice() {
-  // Math.random return values between 0 and 1 so by multiplying it by 2 and then rounding it there is possibility to return 0, 1 or 2
   let randomComputerChoice = Math.round(Math.random() * 2);
 
-  // depending on which number randomComputerChoice variable choosed there are few possibilities of final variable value which will be returned
   if (randomComputerChoice === 0) {
     randomComputerChoice = `rock`;
   } else if (randomComputerChoice === 1) {
@@ -28,7 +26,6 @@ function getHumanChoice() {
       return inputHumanChoice;
     }
 
-    // checks if user didn't type rock, paper or scissors, if didn't then it recall the loop and prompt comes up once again, but if typed then it breaks the loop and returns the value
     if (inputHumanChoice != `rock` && inputHumanChoice != `paper` && inputHumanChoice != `scissors`) {
       alert(`Wrong input, try again.`);
       continue;
@@ -72,21 +69,17 @@ function playGame() {
   let gameCanceled;
 
   for (let roundCount = 1; roundCount <= numberOfRouds; roundCount++) {
-    // define selection for user and computer each time loop runs by using two functions responsible for that
     const computerSelection = getComputerChoice();
     const humanSelection = getHumanChoice();
 
-    // checks if humanSelection is null if so it means that user clicked cancel in prompt window in getHumanChoice() function, so gameCanceled variable is set to true and loop breaks
     if (humanSelection == null) {
       gameCanceled = true;
       break
     }
 
-    // puts values of computer and user selection to playRound function which determines who won the round or if user and computer choosed the same value
     playRound(computerSelection, humanSelection);
   }
 
-  // check if user canceled the game, who won the game or if game ended in a draw
   if (gameCanceled === true) {
     console.log("Game canceled");
   } else if (computerScore > humanScore) {
@@ -98,5 +91,4 @@ function playGame() {
   }
 }
 
-// playGame() invokes code which is responsible for all variables declarations and functions invocations which make the whole game works
 playGame();
