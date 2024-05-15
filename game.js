@@ -12,31 +12,6 @@ function getComputerChoice() {
   return randomComputerChoice;
 }
 
-function getHumanChoice() {
-  let inputHumanChoice;
-
-  while (true) {
-    inputHumanChoice = prompt(`Enter your choice: `);
-
-    // try checks if user input is empty string or any character by trying to convert it to lower case, if it can't then catch assumes that value of input is null which means that user clicked cancel in prompt window so it returns null value of input
-    try {
-      inputHumanChoice = inputHumanChoice.toLowerCase();
-    } 
-    catch {
-      return inputHumanChoice;
-    }
-
-    if (inputHumanChoice != `rock` && inputHumanChoice != `paper` && inputHumanChoice != `scissors`) {
-      alert(`Wrong input, try again.`);
-      continue;
-    } else {
-      break;
-    }
-  }
-
-  return inputHumanChoice
-}
-
 function playGame() {
   let computerScore = 0;
   let humanScore = 0;
@@ -65,24 +40,7 @@ function playGame() {
     }
   }
 
-  const numberOfRouds = 5;
-  let gameCanceled;
-
-  for (let roundCount = 1; roundCount <= numberOfRouds; roundCount++) {
-    const computerSelection = getComputerChoice();
-    const humanSelection = getHumanChoice();
-
-    if (humanSelection == null) {
-      gameCanceled = true;
-      break
-    }
-
-    playRound(computerSelection, humanSelection);
-  }
-
-  if (gameCanceled === true) {
-    console.log("Game canceled");
-  } else if (computerScore > humanScore) {
+  if (computerScore > humanScore) {
     console.log(`Game over! Computer won. Score: computer ${computerScore}, user ${humanScore}`);
   } else if (humanScore > computerScore) {
     console.log(`Game over! You won. Score: Computer ${computerScore}, User ${humanScore}`);
