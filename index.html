@@ -8,18 +8,27 @@
   <script src="./game.js" defer></script>
 </head>
 <body>
-  <div id="text-main">Welcome to <span class="text-bold">Rock</span> <span class="text-bold">Paper</span> <span class="text-bold">Scissors</span> game!</div>
-  <div id="score-container">
-    <div id="score-rounds">Round: 0</div>
-    <div id="score-computer">Computer: 0</div>
-    <div id="score-human">Human: 0</div>
-    <div id="score-winner"></div>
+  <div id="webpage-container">
+    <div id="text-main">Welcome to <span class="text-bold">Rock</span> <span class="text-bold">Paper</span> <span class="text-bold">Scissors</span> game!</div>
+    <div id="game-container">
+      <div id="score-rounds">Round: 0</div>
+      <div id="score-container">
+        <div id="score-computer">Computer: <span class="text-result">4</span></div>
+        <div id="score-human">Human: <span class="text-result">1</span></div>
+      </div>
+      <div id="score-winner"></div>
+      <div id="btn-container">
+        <button id="btn-rock">Rock</button>
+        <button id="btn-paper">Paper</button>
+        <button id="btn-scissors">Scissors</button>
+      </div>
+      <div id="btn-container-restart">
+        <button id="btn-restart">Restart</button>
+      </div>
+    </div>
   </div>
-  <div id="btn-container">
-    <button id="btn-rock">Rock</button>
-    <button id="btn-paper">Paper</button>
-    <button id="btn-scissors">Scissors</button>
-    <button id="btn-restart">Restart</button>
-  </div>
+  
+  
+  
 </body>
 </html>
