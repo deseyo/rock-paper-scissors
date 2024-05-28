@@ -28,6 +28,7 @@ btnRestart.addEventListener("click", () => {
   let choice = confirm("Do you confirm?");
 
   if (choice === true) {
+    scoreWinner.textContent = "";
     roundsScore = 0;
     computerScore = 0;
     humanScore = 0;
