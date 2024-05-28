@@ -70,6 +70,7 @@ body {
 #btn-restart {
   width: 120px;
   font-size: 24px;
+  color: black;
   background-color: hsl(0, 0%, 88%);
   border-radius: 6px;
   border: 2px solid black;
